@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.qaa.module3</groupId>
+  <artifactId>unit_testing_exercises</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Unit testing exercises</name>
+  <description>Java exercises for unit testing with JUnit 5 and Mockito</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Java 17 is the version installed on the classroom machines. -->
+    <maven.compiler.release>17</maven.compiler.release>
+
+    <junit.version>5.10.2</junit.version>
+    <mockito.version>5.11.0</mockito.version>
+    <surefire.version>3.2.5</surefire.version>
+
+    <!-- Which folder of tests the build compiles and runs. The "solutions"
+         profile below points this at the completed answers instead. -->
+    <test.source.dir>${project.basedir}/src/test/java</test.source.dir>
+  </properties>
+
+  <dependencies>
+
+    <!-- JUnit 5 (Jupiter). junit-jupiter pulls in the API, the params support
+         and the engine that actually runs the tests. -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito, used in exercise 3 to mock the UserRepository. -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Gives us the @ExtendWith(MockitoExtension.class) integration so that
+         @Mock and @InjectMocks work inside a JUnit 5 test. -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <testSourceDirectory>${test.source.dir}</testSourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!--
+      The trainer's completed answers live in solutions/src/test/java, which is
+      NOT part of the normal build. Run them with:
+
+          mvn test -P solutions
+
+      A student who clones the repository and runs "mvn test" only ever sees
+      their own skeleton tests in src/test/java.
+    -->
+    <profile>
+      <id>solutions</id>
+      <properties>
+        <test.source.dir>${project.basedir}/solutions/src/test/java</test.source.dir>
+      </properties>
+    </profile>
+  </profiles>
+
+</project>
