@@ -53,6 +53,17 @@
   </dependencies>
 
   <build>
+
+    <!-- The tests live in a top level tests/ folder rather than the Maven
+         default of src/test/java, so that the three sibling repositories
+         (Java, Python and C#) all present the same shape to a student: src/
+         for the code under test, tests/ for the files they edit.
+
+         The package folders are kept underneath tests/, so the package
+         declarations at the top of each test class still match their
+         directory and everything compiles as normal. -->
+    <testSourceDirectory>tests</testSourceDirectory>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

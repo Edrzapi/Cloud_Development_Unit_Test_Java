@@ -56,9 +56,9 @@ Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
 
 ```
 src/main/java/...    the code under test, do not change it
-src/test/java/...    your tests, one skeleton class per exercise
+tests/...            your tests, one skeleton class per exercise
 tasks/               these pages and the test plan template
-CODE_CORRECTIONS.md      read after exercises 1 and 2, not before
+CODE_CORRECTIONS.md  read after exercises 1 and 2, not before
 ```
 
 The original course guide linked out to a GitHub repository for the exercise source. This

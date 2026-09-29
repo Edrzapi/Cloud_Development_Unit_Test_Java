@@ -13,12 +13,35 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
- * Exercise 3 - mocking in a unit test.
+ * EXERCISE 3: mocking in a unit test.
  *
- * UserController talks to a UserRepository. There is no real repository, and
- * even if there were we would not want a unit test to depend on it. Instead we
- * hand the controller a fake repository created by Mockito and tell that fake
- * what to return.
+ * UserController talks to a UserRepository. There is no class in this repository
+ * that implements that interface, and even if there were we would not want a unit
+ * test to depend on it. Instead we hand the controller a FAKE repository created
+ * by Mockito and tell that fake what to return.
+ *
+ * WHAT YOU DO HERE
+ * Write one test per exception UserController.register and UserController.login
+ * can throw, plus the happy path for login. Two of them also check the
+ * INTERACTION rather than the return value: that the controller really did ask
+ * the repository, or really did not.
+ *
+ * TWO PARTS, IN THIS ORDER
+ *   1. Write the test plan first. Copy tasks/TEST_PLAN_TEMPLATE.md and fill in the
+ *      "Exercise 3" table, noting for each row what the mock must be told to return.
+ *   2. Then implement the plan down here, one row per test method.
+ *
+ * HOW THE TODOS WORK
+ * Every unwritten stub carries @Disabled("TODO"), which JUnit reports as skipped
+ * rather than failed, so the suite is green on a fresh clone. Delete the @Disabled
+ * line to activate a stub, then write its body.
+ *
+ * HOW TO RUN
+ *   mvn test                              run everything
+ *   mvn test -Dtest=UserControllerTest    run just this class
+ *
+ * THE FULL BRIEF
+ * tasks/03_mocking.md
  *
  * Three annotations do the work:
  *   @ExtendWith(MockitoExtension.class) switches the Mockito support on
@@ -29,22 +52,37 @@ import org.mockito.junit.jupiter.MockitoExtension;
  * Two methods do the rest:
  *   when(mock.method(args)).thenReturn(value)  tell the fake how to answer
  *   verify(mock).method(args)                  check the fake was called
- *
- * One fully worked test is provided. The rest are @Disabled stubs.
+ *   verifyNoInteractions(mock)                 check it was never touched
  */
 @ExtendWith(MockitoExtension.class)
 class UserControllerTest {
+
+    // THE FIXTURE. This class has no @BeforeEach method, because
+    // @ExtendWith(MockitoExtension.class) is doing that job: before every @Test it
+    // creates a new fake for each @Mock field and a new object under test for the
+    // @InjectMocks field, so no stubbing or recorded call can leak from one test
+    // into the next. That is exactly what @BeforeEach gives you in exercises 1 and
+    // 2, only written declaratively.
+    //
+    // The sibling repositories have no such annotations. In C# with NUnit and Moq
+    // you build the mock by hand in a [SetUp] method and pass mock.Object to the
+    // constructor; in Python you build a Mock in setUp and pass it in the same way.
+    // Java is the odd one out here, so it is worth knowing what the annotations
+    // stand in for.
 
     // The fake repository. Its methods return null or false until we stub them.
     @Mock
     private UserRepository repository;
 
     // The real object under test, with the fake repository injected into it.
+    // Constructor injection is what makes this possible: UserController takes its
+    // repository as a constructor argument, so a test can supply any stand-in.
     @InjectMocks
     private UserController controller;
 
     // ---------------------------------------------------------------------
-    // WORKED EXAMPLE - a valid registration.
+    // WORKED EXAMPLE - a valid registration. The controller should ask the
+    // repository whether the username is taken, and then ask it to store the user.
     // ---------------------------------------------------------------------
 
     @Test
@@ -62,8 +100,11 @@ class UserControllerTest {
         User actual = controller.register(input);
 
         // assert
+        // User overrides equals on all three fields, so two separately created
+        // User objects with the same values are equal and assertEquals passes.
         assertEquals(saved, actual);
-        // Also check the controller really did ask the repository to save.
+        // Also check the controller really did ask the repository to save. This
+        // is the half of the test that return values cannot tell you.
         verify(repository).register(input);
     }
 
@@ -75,43 +116,45 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the user is null")
     void registerThrowsWhenUserIsNull() {
-        // TODO assert the message is "User must not be null". This is the new
-        // exception the exercise guide mentions in part 1.
+        // Should assert the message is "User must not be null". This is the new
+        // exception the exercise guide mentions in part 1: UserService had no
+        // equivalent, because it took two strings rather than a User.
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the username is null")
     void registerThrowsWhenUsernameIsNull() {
-        // TODO assert the message is "Username must not be null".
+        // Should assert the message is "Username must not be null", passing a real
+        // User whose username field is null.
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the username is whitespace only")
     void registerThrowsWhenUsernameIsWhitespaceOnly() {
-        // TODO assert the message is "Username must not be whitespace only".
+        // Should assert the message is "Username must not be whitespace only".
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password is null")
     void registerThrowsWhenPasswordIsNull() {
-        // TODO assert the message is "Password must not be null".
+        // Should assert the message is "Password must not be null".
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password is whitespace only")
     void registerThrowsWhenPasswordIsWhitespaceOnly() {
-        // TODO assert the message is "Password must not be whitespace only".
+        // Should assert the message is "Password must not be whitespace only".
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the username is too short")
     void registerThrowsWhenUsernameIsTooShort() {
-        // TODO assert the message is
+        // Borderline case. A 3 character username such as "bob" should give
         // "Username must contain at least 4 characters".
     }
 
@@ -119,15 +162,17 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the repository says the username exists")
     void registerThrowsWhenRepositorySaysUsernameExists() {
-        // TODO stub when(repository.exists("bobby")).thenReturn(true) and
-        // assert the message is "Username already exists".
+        // The one stub in this class that needs the mock told what to say. Should
+        // stub when(repository.exists("bobby")).thenReturn(true) and then assert
+        // the message is "Username already exists". Note the difference from
+        // exercise 2: the controller does not know the answer itself, it asks.
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password is too short")
     void registerThrowsWhenPasswordIsTooShort() {
-        // TODO assert the message is
+        // Borderline case. A 5 character password such as "Code1" should give
         // "Password must contain at least 6 characters".
     }
 
@@ -135,7 +180,7 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password has no uppercase character")
     void registerThrowsWhenPasswordHasNoUppercaseCharacter() {
-        // TODO assert the message is
+        // Should assert the message is
         // "Password must contain at least 1 uppercase character".
     }
 
@@ -143,7 +188,7 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password has no lowercase character")
     void registerThrowsWhenPasswordHasNoLowercaseCharacter() {
-        // TODO assert the message is
+        // Should assert the message is
         // "Password must contain at least 1 lowercase character".
     }
 
@@ -151,7 +196,7 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register throws IllegalArgumentException when the password has no number")
     void registerThrowsWhenPasswordHasNoNumber() {
-        // TODO assert the message is
+        // Should assert the message is
         // "Password must contain at least 1 number character".
     }
 
@@ -159,60 +204,51 @@ class UserControllerTest {
     @Disabled("TODO")
     @DisplayName("register never touches the repository when validation fails")
     void registerNeverTouchesRepositoryWhenValidationFails() {
-        // TODO after a failed registration, use verifyNoInteractions(repository)
-        // to prove nothing was written.
+        // An interaction test with nothing to return. Should attempt a
+        // registration that fails validation, then use
+        // verifyNoInteractions(repository) to prove nothing was written. Import it
+        // with: import static org.mockito.Mockito.verifyNoInteractions;
     }
 
     // ---------------------------------------------------------------------
-    // TODO stubs - login
+    // TODO stubs - login. Note the guide's point: the controller no longer decides
+    // whether the user is real, the repository does. So there is less to check
+    // here than there was in exercise 2.
     // ---------------------------------------------------------------------
 
     @Test
     @Disabled("TODO")
     @DisplayName("login returns the user the repository returns")
     void loginReturnsUserTheRepositoryReturns() {
-        // TODO stub repository.login(input) to return a user and assert the
-        // controller hands that same user back.
+        // Should stub repository.login(input) to return a user, assert the
+        // controller hands that same user straight back, and verify it asked the
+        // repository once.
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("login throws IllegalArgumentException when the user is null")
     void loginThrowsWhenUserIsNull() {
-        // TODO assert the message is "User must not be null".
+        // Should assert the message is "User must not be null".
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("login throws IllegalArgumentException when the username or password is null")
     void loginThrowsWhenUsernameOrPasswordIsNull() {
-        // TODO assert the message is
-        // "Username and password must not be null".
+        // Should assert the message is "Username and password must not be null".
     }
 
     @Test
     @Disabled("TODO")
     @DisplayName("login throws IllegalArgumentException when the username or password is empty")
     void loginThrowsWhenUsernameOrPasswordIsEmpty() {
-        // TODO assert the message is
-        // "Username and password must not be empty".
+        // Should assert the message is "Username and password must not be empty",
+        // and that the repository was never asked to log anyone in.
     }
 
     // ---------------------------------------------------------------------
-    // Stretch task - test driven development.
-    //
-    // Write a plan for the three UserRepository methods, then create
-    // ConcreteUserRepository implementing UserRepository, storing users in a
-    // List<User>. Write each test BEFORE the method it tests. Put those tests
-    // in a new class, ConcreteUserRepositoryTest, in this package.
+    // The stretch task has its own file: ConcreteUserRepositoryTest, in this same
+    // package. Start it once this class is finished.
     // ---------------------------------------------------------------------
-
-    @Test
-    @Disabled("TODO stretch task")
-    @DisplayName("placeholder for the stretch task")
-    void stretchTaskPlaceholder() {
-        // TODO delete this stub once ConcreteUserRepositoryTest exists. The
-        // first test to write is: register adds the user to the list and
-        // returns it.
-    }
 }

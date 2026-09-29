@@ -154,7 +154,7 @@ content rules, so the real message is:
 Password must contain at least 6 characters
 ```
 
-The worked example in `src/test/java/.../exercise2/UserServiceTest.java` therefore uses
+The worked example in `tests/.../exercise2/UserServiceTest.java` therefore uses
 `"Codesss"`, which is long enough to reach the rule the guide meant to demonstrate. The
 same footnote appears under the table in `tasks/02_testing_exceptions.md`.
 

@@ -6,7 +6,7 @@ interface in the `exercise3` package of this repository.
 | | |
 |---|---|
 | Classes under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/UserController.java`, with `User.java` and `UserRepository.java` alongside it |
-| Test class you edit | `src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java` |
+| Test class you edit | `tests/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 3 - UserController with a mocked repository" table |
 
 Mockito is already on the classpath; `pom.xml` pins JUnit 5.10.2 and Mockito 5.11.0. There
@@ -72,7 +72,7 @@ verify(repository).register(input);                   // check the fake was call
 `verifyNoInteractions(repository)` is the other way round, and is how you prove the
 controller rejected a bad user **before** it went anywhere near storage.
 
-Open `src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java`.
+Open `tests/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java`.
 One fully worked test is provided; the rest are `@Disabled` stubs.
 
 Run your tests with:

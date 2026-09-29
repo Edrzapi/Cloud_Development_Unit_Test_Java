@@ -6,7 +6,7 @@ repository.
 | | |
 |---|---|
 | Class under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise1/Calculator.java` |
-| Test class you edit | `src/test/java/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java` |
+| Test class you edit | `tests/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 1 - Calculator" table |
 
 Clone this repository and open the folder holding `pom.xml` as a Maven project in your IDE
@@ -44,7 +44,7 @@ give you? Write down what you expect **before** you run it.
 The `Calculator` class has already been created; use your test plan to guide the
 development of tests for the methods of this class.
 
-Open `src/test/java/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java`.
+Open `tests/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java`.
 One fully worked test is already there, the `add` row from the table above. The rest are
 `@Disabled` stubs, one per row you are expected to write. Delete the `@Disabled` line as
 you start each one.

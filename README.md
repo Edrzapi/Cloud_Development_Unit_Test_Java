@@ -32,6 +32,14 @@ Then clone the repository and open the `java` folder, the one holding `pom.xml`:
 You do not have to use an IDE. The command line on its own is enough for every exercise:
 an editor plus `mvn test` will get you all the way through.
 
+## Where the files are
+
+The code under test is in `src/main/java/`; you read it, you do not change it. The test
+classes you edit are in `tests/`, at the top level, with the package folders kept
+underneath so the `package` declarations still match. The `pom.xml` points Maven at that
+folder with `<testSourceDirectory>tests</testSourceDirectory>`. The Python and C# sibling
+repositories use the same `src/` and `tests/` split, so the shape carries across.
+
 ## How to run the tests
 
 From the `java` folder, the one holding `pom.xml`:
@@ -45,17 +53,17 @@ On a fresh clone that build **passes**. This is what a green run looks like:
 ```
 [INFO] Results:
 [INFO]
-[WARNING] Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
+[WARNING] Tests run: 56, Failures: 0, Errors: 0, Skipped: 53
 [INFO]
 [INFO] BUILD SUCCESS
 ```
 
-Do not be alarmed by 44 skipped. Almost every test method is an unfinished stub marked
+Do not be alarmed by 53 skipped. Almost every test method is an unfinished stub marked
 `@Disabled`, and JUnit reports a disabled test as skipped rather than failed, so the project
 builds cleanly before you have written a line.
 
-**The skip count is your progress bar.** It starts at 44 and should fall by one every time
-you finish a stub. When you have done the lot it reaches 0, and 47 tests run and pass.
+**The skip count is your progress bar.** It starts at 53 and should fall by one every time
+you finish a stub. When you have done the lot it reaches 0, and 56 tests run and pass.
 
 While you are working on a single class, run just that class:
 

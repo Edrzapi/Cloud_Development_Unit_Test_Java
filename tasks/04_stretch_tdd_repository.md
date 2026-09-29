@@ -13,12 +13,13 @@ repository class.
 | | |
 |---|---|
 | Interface to implement | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/UserRepository.java` |
-| Class you create | `ConcreteUserRepository`, in the same package as your tests: `src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/` |
-| Test class you create | `ConcreteUserRepositoryTest`, in that same folder |
+| Class you create | `ConcreteUserRepository`, beside the interface: `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/` |
+| Test class you create | `ConcreteUserRepositoryTest`, already in `tests/com/qaa/module3/unit_testing_exercises/exercise3/` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 3 stretch task" table |
 
-The repository class lives in the test tree rather than in `src/main/java` on purpose:
-writing it is your task, so it must not appear in the code you were handed.
+The class goes next to the interface it implements, in the same package as the test, so
+there is no import to add. It is the one piece of `src/main/java` you write rather than
+read. The sibling C# and Python repositories put their version in the same place.
 
 The interface you are implementing is:
 
@@ -56,16 +57,10 @@ Things your plan should decide before you write any code:
 
 ## Getting started
 
-In `UserControllerTest` there is a placeholder stub at the bottom of the class:
-
-```java
-@Test
-@Disabled("TODO stretch task")
-@DisplayName("placeholder for the stretch task")
-void stretchTaskPlaceholder() {
-```
-
-Delete it once `ConcreteUserRepositoryTest` exists.
+The test class already exists: open
+`tests/com/qaa/module3/unit_testing_exercises/exercise3/ConcreteUserRepositoryTest.java`.
+It holds a suggested plan as `@Disabled` stubs, with no worked example, because writing the
+first test is the task. Its file header walks through the order to work in.
 
 Run your tests with:
 
@@ -82,5 +77,5 @@ mvn test -Dtest=ConcreteUserRepositoryTest
 ## Done looks like
 
 `mvn test` reports 0 failures and 0 skipped: every stub in the repository has been written,
-the placeholder is gone, and your own `ConcreteUserRepositoryTest` tests are running
-alongside the rest.
+including the ones in `ConcreteUserRepositoryTest`, and the `ConcreteUserRepository` class
+they drive exists and passes them.
