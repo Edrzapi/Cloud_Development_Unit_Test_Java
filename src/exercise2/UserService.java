@@ -1,4 +1,4 @@
-package com.qaa.module3.unit_testing_exercises.exercise2;
+package exercise2;
 
 import java.util.HashMap;
 import java.util.Map;

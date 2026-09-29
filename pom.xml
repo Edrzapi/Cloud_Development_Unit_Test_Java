@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.qaa.module3</groupId>
+  <groupId>exercises</groupId>
   <artifactId>unit_testing_exercises</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Unit testing exercises</name>
@@ -54,14 +54,17 @@
 
   <build>
 
-    <!-- The tests live in a top level tests/ folder rather than the Maven
-         default of src/test/java, so that the three sibling repositories
-         (Java, Python and C#) all present the same shape to a student: src/
-         for the code under test, tests/ for the files they edit.
+    <!-- The code under test lives in a top level src/ folder and the tests in a
+         top level tests/ folder, rather than the Maven default layout, so that
+         the three sibling repositories (Java, Python and C#) all present the
+         same shape to a student: src/ for the code under test, tests/ for the
+         files they edit.
 
-         The package folders are kept underneath tests/, so the package
-         declarations at the top of each test class still match their
-         directory and everything compiles as normal. -->
+         Beneath each there is one folder per exercise and nothing else, so the
+         packages are simply exercise1, exercise2 and exercise3. The package
+         declarations still match their directory and everything compiles as
+         normal. -->
+    <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>tests</testSourceDirectory>
 
     <plugins>

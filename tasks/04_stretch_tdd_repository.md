@@ -12,14 +12,13 @@ repository class.
 
 | | |
 |---|---|
-| Interface to implement | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/UserRepository.java` |
-| Class you create | `ConcreteUserRepository`, beside the interface: `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/` |
-| Test class you create | `ConcreteUserRepositoryTest`, already in `tests/com/qaa/module3/unit_testing_exercises/exercise3/` |
+| Interface to implement | `src/exercise3/UserRepository.java` |
+| Class you create | `ConcreteUserRepository`, beside the interface: `src/exercise3/` |
+| Test class you create | `ConcreteUserRepositoryTest`, already in `tests/exercise3/` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 3 stretch task" table |
 
 The class goes next to the interface it implements, in the same package as the test, so
-there is no import to add. It is the one piece of `src/main/java` you write rather than
-read. The sibling C# and Python repositories put their version in the same place.
+there is no import to add. It is the one piece of `src/` you write rather than read. The sibling C# and Python repositories put their version in the same place.
 
 The interface you are implementing is:
 
@@ -58,7 +57,7 @@ Things your plan should decide before you write any code:
 ## Getting started
 
 The test class already exists: open
-`tests/com/qaa/module3/unit_testing_exercises/exercise3/ConcreteUserRepositoryTest.java`.
+`tests/exercise3/ConcreteUserRepositoryTest.java`.
 It holds a suggested plan as `@Disabled` stubs, with no worked example, because writing the
 first test is the task. Its file header walks through the order to work in.
 

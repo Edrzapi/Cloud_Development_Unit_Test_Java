@@ -1,4 +1,4 @@
-package com.qaa.module3.unit_testing_exercises.exercise1;
+package exercise1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

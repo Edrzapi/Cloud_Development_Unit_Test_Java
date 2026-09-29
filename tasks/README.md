@@ -55,8 +55,8 @@ Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
 ## Where everything lives
 
 ```
-src/main/java/...    the code under test, do not change it
-tests/...            your tests, one skeleton class per exercise
+src/exerciseN/       the code under test, do not change it
+tests/exerciseN/     your tests, one skeleton class per exercise
 tasks/               these pages and the test plan template
 CODE_CORRECTIONS.md  read after exercises 1 and 2, not before
 ```

@@ -1,4 +1,4 @@
-package com.qaa.module3.unit_testing_exercises.exercise3;
+package exercise3;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.qaa.module3.unit_testing_exercises.exercise3;
+package exercise3;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -15,11 +15,10 @@ import org.junit.jupiter.api.Test;
  *
  *   1. Write the test plan for exists, register and login. Copy
  *      tasks/TEST_PLAN_TEMPLATE.md and fill in the "Exercise 3 stretch task" table.
- *   2. Create ConcreteUserRepository in
- *      src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/, beside the
- *      UserRepository interface it implements. Give it empty method bodies that
- *      throw UnsupportedOperationException for now, and a private List<User> field
- *      to store the users in. It is in the same package as this test class, so
+ *   2. Create ConcreteUserRepository in src/exercise3/, beside the UserRepository
+ *      interface it implements. Give it empty method bodies that throw
+ *      UnsupportedOperationException for now, and a private List<User> field to
+ *      store the users in. It is in the same package as this test class, so
  *      there is no import to add.
  *   3. Write ONE test below. Run it. Watch it FAIL. A test you have never seen fail
  *      is a test you cannot trust.

@@ -2,8 +2,8 @@
 
 Read this **after** you have attempted exercises 1 and 2, or if you are the trainer.
 
-The classes in `src/main/java` were ported from the original exercise repository, which
-carried two real defects. They have now been **fixed**, so that a student writing tests
+The classes in `src/` were ported from the original exercise repository, which carried two
+real defects. They have now been **fixed**, so that a student writing tests
 faithfully from the stated rules gets tests that pass, and so that a student reading the
 source learns why it is written the way it is. Each fix has a short comment sitting above
 the check it explains.
@@ -18,7 +18,7 @@ One issue is still live, issue 3 below. It is in the worksheet, not in the code.
 
 ## Fixed 1 - UserService.login looked the user up by password, not by username
 
-**Where:** `src/main/java/.../exercise2/UserService.java`, in `login`.
+**Where:** `src/exercise2/UserService.java`, in `login`.
 
 **Was:**
 
@@ -78,8 +78,8 @@ work.
 
 ## Fixed 2 - the password character rules used a broken regular expression
 
-**Where:** `src/main/java/.../exercise2/UserService.java` in `register`, and the same three
-lines copied into `src/main/java/.../exercise3/UserController.java` in `register`.
+**Where:** `src/exercise2/UserService.java` in `register`, and the same three lines copied
+into `src/exercise3/UserController.java` in `register`.
 
 **Was:**
 

@@ -34,11 +34,26 @@ an editor plus `mvn test` will get you all the way through.
 
 ## Where the files are
 
-The code under test is in `src/main/java/`; you read it, you do not change it. The test
-classes you edit are in `tests/`, at the top level, with the package folders kept
-underneath so the `package` declarations still match. The `pom.xml` points Maven at that
-folder with `<testSourceDirectory>tests</testSourceDirectory>`. The Python and C# sibling
-repositories use the same `src/` and `tests/` split, so the shape carries across.
+The code under test is in `src/`; you read it, you do not change it. The test classes you
+edit are in `tests/`. Both hold one folder per exercise and nothing else:
+
+```
+src/
+  exercise1/    Calculator.java
+  exercise2/    UserService.java
+  exercise3/    User.java, UserRepository.java, UserController.java
+tests/
+  exercise1/    CalculatorTest.java
+  exercise2/    UserServiceTest.java
+  exercise3/    UserControllerTest.java, ConcreteUserRepositoryTest.java
+```
+
+So the packages are simply `exercise1`, `exercise2` and `exercise3`, and the `package`
+declaration at the top of each file matches the folder it sits in. The `pom.xml` points
+Maven at the two folders with `<sourceDirectory>src</sourceDirectory>` and
+`<testSourceDirectory>tests</testSourceDirectory>`. The Python and C# sibling repositories
+have exactly the same three exercise folders under `src/` and `tests/`, so the shape
+carries across.
 
 ## How to run the tests
 
@@ -101,8 +116,8 @@ dozens of failures with no idea which is which.
 
 ## What code you are working with
 
-All of it is under `src/main/java/com/qaa/module3/unit_testing_exercises/`. Do not change
-it; your job is to test it.
+All of it is under `src/`, in the three exercise folders. Do not change it; your job is to
+test it.
 
 ### `exercise1/Calculator.java` - class `Calculator`
 

@@ -5,8 +5,8 @@ repository.
 
 | | |
 |---|---|
-| Class under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise2/UserService.java` |
-| Test class you edit | `tests/com/qaa/module3/unit_testing_exercises/exercise2/UserServiceTest.java` |
+| Class under test | `src/exercise2/UserService.java` |
+| Test class you edit | `tests/exercise2/UserServiceTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 2 - UserService" table |
 
 Clone this repository and open the folder holding `pom.xml` as a Maven project in your IDE
@@ -46,7 +46,7 @@ not; a password of exactly 6 is allowed, 5 is not.
 The `UserService` class has already been created; use your test plan to guide the
 development of tests for the methods of this class.
 
-Open `tests/com/qaa/module3/unit_testing_exercises/exercise2/UserServiceTest.java`.
+Open `tests/exercise2/UserServiceTest.java`.
 One fully worked test is provided and the rest are `@Disabled` stubs. Delete the
 `@Disabled` line as you start each one.
 
