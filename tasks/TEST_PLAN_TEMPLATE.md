@@ -39,9 +39,9 @@ successful paths.
 
 The guide supplies two example rows. Row 2 is reproduced exactly as printed, and it is
 wrong: `"Codes"` is 5 characters, so the length rule fires first and the real message is
-`"Password must contain at least 6 characters"`. See the footnote in
-[02_testing_exceptions.md](02_testing_exceptions.md) and issue 3 in
-[../CODE_CORRECTIONS.md](../CODE_CORRECTIONS.md).
+`"Password must contain at least 6 characters"`. Use a longer password such as `"Codesss"`
+if you want to reach the number rule the guide meant to demonstrate. There is a fuller
+footnote under the same table in [02_testing_exceptions.md](02_testing_exceptions.md).
 
 | ID | Method | Description | Inputs | Expected output | Actual output |
 |----|--------|-------------|--------|-----------------|---------------|

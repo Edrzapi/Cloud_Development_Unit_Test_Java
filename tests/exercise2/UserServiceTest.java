@@ -78,7 +78,7 @@ class UserServiceTest {
     // is only 5 characters, so the length rule is checked first and you get
     // "Password must contain at least 6 characters" instead. "Codesss" is long
     // enough to reach the number rule the guide meant to demonstrate. This is
-    // an error in the worksheet, not in the code; CODE_CORRECTIONS.md records it.
+    // an error in the worksheet, not in the code.
     // ---------------------------------------------------------------------
 
     @Test

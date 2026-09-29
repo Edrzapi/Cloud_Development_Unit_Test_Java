@@ -30,8 +30,7 @@ cases:
 > length rule before any of the character rules, so the exception you actually get is
 > `IllegalArgumentException("Password must contain at least 6 characters")`. Use a longer
 > password such as `"Codesss"` if you want to reach the number rule. Read the rules in
-> `UserService.register` in order and you will see why. This is noted in
-> `CODE_CORRECTIONS.md`, issue 3.
+> `UserService.register` in order and you will see why.
 
 Two example test cases have been created for you. It is expected that you produce a test
 case for every possible exception that could be thrown.
@@ -80,8 +79,24 @@ mvn test -Dtest=UserServiceTest
 
 All 17 `UserServiceTest` tests run and pass, with nothing skipped in that class.
 
-Once you have finished, read `CODE_CORRECTIONS.md` in the root of this repository. This code
-was ported from an older exercise repository and carried two real defects, which have since
-been fixed; the file records what they were, how a test finds them, and what changed. It is
-worth reading even though the code is now correct, because finding faults like those is
-exactly what this exercise is training you to do.
+Once you have finished, read `UserService` again with its comments in mind. This code was
+ported from an older exercise repository and carried two real defects. Both have since been
+fixed, and a short comment sits above each fix in the source:
+
+- `login` looked the user up in the map by the password rather than by the username, so a
+  correctly registered user could never log in, and the `"Invalid password supplied"` branch
+  could not be reached by any ordinary input. `login` now looks the user up by the trimmed
+  username and returns that trimmed username, which is what test case 1 of your plan
+  expects.
+- The three password character rules were each written as a whole-string match, along the
+  lines of `matches("[A-Z|a-z|1-9]*[A-Z]+[A-Z|a-z|1-9]*")`. That had three faults: `1-9`
+  excluded the digit `0`; inside a character class `|` is a literal pipe and not
+  alternation; and because `String.matches` must match the whole string, a password holding
+  any character outside the class failed every one of the three rules, so the first rule ran
+  and took the blame. Each rule is now a plain "contains" check, `.*[A-Z].*`, `.*[a-z].*`
+  and `.*[0-9].*`, applied in the same order and throwing the same messages as before.
+
+Both are worth understanding even though the code is now correct, because finding faults
+like those is exactly what this exercise is training you to do. Note especially the lesson
+in the second one: an error message that names the wrong rule is worse than no message at
+all, which is why you assert on the message and not just on the exception type.

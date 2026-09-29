@@ -58,7 +58,6 @@ Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
 src/exerciseN/       the code under test, do not change it
 tests/exerciseN/     your tests, one skeleton class per exercise
 tasks/               these pages and the test plan template
-CODE_CORRECTIONS.md  read after exercises 1 and 2, not before
 ```
 
 The original course guide linked out to a GitHub repository for the exercise source. This
