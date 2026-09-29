@@ -64,10 +64,10 @@ mvn test -Dtest=CalculatorTest
 ## Done looks like
 
 Every `CalculatorTest` stub you have taken on has moved from skipped to passing, and the
-skipped count has fallen by the same number. At the start the run reports:
+skipped count has fallen by the same number. At the start that filtered run reports:
 
 ```
-Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 11
 ```
 
 When exercise 1 is finished, all 12 `CalculatorTest` tests run and pass, and nothing in

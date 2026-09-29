@@ -49,7 +49,7 @@ It should pass immediately, reporting a large number of skipped tests. That is e
 the test methods are unfinished stubs marked `@Disabled`, and your job is to fill them in.
 
 ```
-Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 53
 ```
 
 ## Where everything lives
