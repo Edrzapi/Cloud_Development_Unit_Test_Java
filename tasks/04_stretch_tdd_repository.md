@@ -16,7 +16,6 @@ repository class.
 | Class you create | `ConcreteUserRepository`, in the same package as your tests: `src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/` |
 | Test class you create | `ConcreteUserRepositoryTest`, in that same folder |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 3 stretch task" table |
-| Solution | `solutions/src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/ConcreteUserRepositoryTest.java`, with the implementation beside it |
 
 The repository class lives in the test tree rather than in `src/main/java` on purpose:
 writing it is your task, so it must not appear in the code you were handed.
@@ -85,10 +84,3 @@ mvn test -Dtest=ConcreteUserRepositoryTest
 `mvn test` reports 0 failures and 0 skipped: every stub in the repository has been written,
 the placeholder is gone, and your own `ConcreteUserRepositoryTest` tests are running
 alongside the rest.
-
-Compare your work with the solution listed at the top of this page after you have had a
-proper go:
-
-```bash
-mvn test -P solutions
-```

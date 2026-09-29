@@ -8,7 +8,6 @@ repository.
 | Class under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise2/UserService.java` |
 | Test class you edit | `src/test/java/com/qaa/module3/unit_testing_exercises/exercise2/UserServiceTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 2 - UserService" table |
-| Solution | `solutions/src/test/java/com/qaa/module3/unit_testing_exercises/exercise2/UserServiceTest.java` |
 
 Clone this repository and open the folder holding `pom.xml` as a Maven project in your IDE
 to get started.
@@ -86,10 +85,3 @@ was ported from an older exercise repository and carried two real defects, which
 been fixed; the file records what they were, how a test finds them, and what changed. It is
 worth reading even though the code is now correct, because finding faults like those is
 exactly what this exercise is training you to do.
-
-Compare your work with the solution listed at the top of this page after you have had a
-proper go:
-
-```bash
-mvn test -P solutions
-```

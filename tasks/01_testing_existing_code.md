@@ -8,7 +8,6 @@ repository.
 | Class under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise1/Calculator.java` |
 | Test class you edit | `src/test/java/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 1 - Calculator" table |
-| Solution | `solutions/src/test/java/com/qaa/module3/unit_testing_exercises/exercise1/CalculatorTest.java` |
 
 Clone this repository and open the folder holding `pom.xml` as a Maven project in your IDE
 to get started. IntelliJ IDEA, Eclipse and VS Code will all import it directly.
@@ -73,10 +72,3 @@ Tests run: 47, Failures: 0, Errors: 0, Skipped: 44
 
 When exercise 1 is finished, all 12 `CalculatorTest` tests run and pass, and nothing in
 that class is skipped.
-
-Compare your work with the solution listed at the top of this page only after you have had
-a proper go. You can run the full solution suite with:
-
-```bash
-mvn test -P solutions
-```

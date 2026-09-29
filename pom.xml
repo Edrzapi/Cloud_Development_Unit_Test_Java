@@ -20,10 +20,6 @@
     <junit.version>5.10.2</junit.version>
     <mockito.version>5.11.0</mockito.version>
     <surefire.version>3.2.5</surefire.version>
-
-    <!-- Which folder of tests the build compiles and runs. The "solutions"
-         profile below points this at the completed answers instead. -->
-    <test.source.dir>${project.basedir}/src/test/java</test.source.dir>
   </properties>
 
   <dependencies>
@@ -57,8 +53,6 @@
   </dependencies>
 
   <build>
-    <testSourceDirectory>${test.source.dir}</testSourceDirectory>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -67,23 +61,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <!--
-      The trainer's completed answers live in solutions/src/test/java, which is
-      NOT part of the normal build. Run them with:
-
-          mvn test -P solutions
-
-      A student who clones the repository and runs "mvn test" only ever sees
-      their own skeleton tests in src/test/java.
-    -->
-    <profile>
-      <id>solutions</id>
-      <properties>
-        <test.source.dir>${project.basedir}/solutions/src/test/java</test.source.dir>
-      </properties>
-    </profile>
-  </profiles>
 
 </project>

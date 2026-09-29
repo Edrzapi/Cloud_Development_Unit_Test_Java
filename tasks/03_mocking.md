@@ -8,7 +8,6 @@ interface in the `exercise3` package of this repository.
 | Classes under test | `src/main/java/com/qaa/module3/unit_testing_exercises/exercise3/UserController.java`, with `User.java` and `UserRepository.java` alongside it |
 | Test class you edit | `src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java` |
 | Plan | [TEST_PLAN_TEMPLATE.md](TEST_PLAN_TEMPLATE.md), the "Exercise 3 - UserController with a mocked repository" table |
-| Solution | `solutions/src/test/java/com/qaa/module3/unit_testing_exercises/exercise3/UserControllerTest.java` |
 
 Mockito is already on the classpath; `pom.xml` pins JUnit 5.10.2 and Mockito 5.11.0. There
 is nothing to install.
@@ -96,10 +95,3 @@ stretch-task placeholder at the bottom of the class, which you delete when you s
 
 With exercises 1, 2 and 3 complete, `mvn test` reports 47 tests run, 0 failures and 1
 skipped, that one being the stretch placeholder.
-
-Compare your work with the solution listed at the top of this page after you have had a
-proper go:
-
-```bash
-mvn test -P solutions
-```

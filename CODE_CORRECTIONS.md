@@ -8,10 +8,9 @@ faithfully from the stated rules gets tests that pass, and so that a student rea
 source learns why it is written the way it is. Each fix has a short comment sitting above
 the check it explains.
 
-This file is the record: what was wrong, how a test finds it, and what the fix was. The
-solutions in `solutions/` now assert the **correct** behaviour throughout, so
-`mvn test -P solutions` is green because the code is right, not because the tests were bent
-around a fault.
+This file is the record: what was wrong, how a test finds it, and what the fix was. Tests
+written faithfully from the stated rules now pass because the code is right, not because
+the expectations were bent around a fault.
 
 One issue is still live, issue 3 below. It is in the worksheet, not in the code.
 
